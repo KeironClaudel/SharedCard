@@ -40,6 +40,12 @@ namespace SharedCard.Api.Data
                 entity.ToTable("BillingCycles");
                 entity.HasKey(e => e.CycleId);
             });
+
+            modelBuilder.Entity<Bill>()
+                .Property(b => b.Amount)
+                    .HasPrecision(18, 2);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
